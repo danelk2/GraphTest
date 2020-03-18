@@ -1,0 +1,58 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Microsoft Graph Mail Folders",
+    "description": "API for graph.microsoft.com",
+    "version": "1.0"
+  },
+  "host": "graph.microsoft.com",
+  "basePath": "/v1.0",
+  "schemes": [
+    "https"
+  ],
+  "produces": [ "application/json" ],
+  "paths": {
+    "/me": {
+      "get": {
+        "summary": "Get user info",
+        "operationId": "me.user.GetUser",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "User": {
+      "type": "object",
+      "properties": {
+        "displayName": {
+          "type": "string"
+        },
+        "givenName": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "jobTitle": {
+          "type": "string"
+        },
+        "mail": {
+          "type": "string"
+        },
+        "surname": {
+          "type": "string"
+        },
+        "userPrincipalName": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
