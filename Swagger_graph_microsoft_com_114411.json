@@ -1,0 +1,108 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Microsoft",
+    "description": "API for graph.microsoft.com",
+    "version": "0.0.0"
+  },
+  "host": "graph.microsoft.com",
+  "basePath": "/v1.0",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/users/{upn}": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "description": "Upn",
+        "operationId": "upn",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "upn",
+            "in": "path",
+            "description": "Upn",
+            "required": true,
+            "type": "string",
+            "x-example": ""
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Authorization",
+            "required": false,
+            "type": "string",
+            "x-example": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Upn"
+            }
+          }
+        },
+        "security": []
+      }
+    }
+  },
+  "definitions": {
+    "Upn": {
+      "description": "Model for Upn",
+      "required": [
+        "businessPhones"
+      ],
+      "properties": {
+        "businessPhones": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "displayName": {
+          "type": "string"
+        },
+        "givenName": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "jobTitle": {
+          "type": "string"
+        },
+        "mail": {
+          "type": "string"
+        },
+        "mobilePhone": {
+          "type": "string"
+        },
+        "officeLocation": {
+          "type": "string"
+        },
+        "preferredLanguage": {
+          "type": "string"
+        },
+        "surname": {
+          "type": "string"
+        },
+        "userPrincipalName": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "securityDefinitions": {},
+  "security": [],
+  "tags": [
+    {
+      "name": "Users",
+      "description": "Operations about Users"
+    }
+  ]
+}
