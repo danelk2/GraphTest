@@ -5,7 +5,7 @@
     "description": "API for graph.microsoft.com",
     "version": "1.0"
   },
-  "host": "api.api.openweathermap.org",
+  "host": "api.openweathermap.org",
   "basePath": "/data/2.5",
   "schemes": [ "http" ],
   "produces": [ "application/json" ],
