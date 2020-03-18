@@ -3,7 +3,7 @@
   "info": {
     "title": "Microsoft Graph Mail Folders",
     "description": "API for graph.microsoft.com",
-    "version": "0.0.0"
+    "version": "1.0.0"
   },
   "host": "graph.microsoft.com",
   "basePath": "/v1.0",
@@ -29,14 +29,7 @@
               "$ref": "#/definitions/User"
             }
           }
-        },
-        "security": [
-          {
-            "oauth2": [
-              "https://graph.microsoft.com/.default"
-            ]
-          }
-        ]
+        }
       }
     }
   },
@@ -80,18 +73,6 @@
         "userPrincipalName": {
           "type": "string"
         }
-      }
-    }
-  },
-  "securityDefinitions": {
-    "oauth2": {
-      "description": "OAuth2 authentication scheme for the API",
-      "type": "oauth2",
-      "flow": "accessCode",
-      "authorizationUrl": "https://login.microsoftonline.com/55ab9e4e-ee08-4ac0-8a2c-17dbea84d7f9/oauth2/v2.0/authorization",
-      "tokenUrl": "https://login.microsoftonline.com/55ab9e4e-ee08-4ac0-8a2c-17dbea84d7f9/oauth2/v2.0/token",
-      "scopes": {
-        "https://graph.microsoft.com/.default": "Graph Default"
       }
     }
   },
