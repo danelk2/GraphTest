@@ -10,6 +10,7 @@
   "schemes": [
     "https"
   ],
+  "produces": [ "application/json" ],
   "paths": {
     "/me": {
       "get": {
@@ -28,8 +29,8 @@
     }
   },
   "definitions": {
-    "User": {      
-      "description": "Model for User",
+    "User": {
+      "type": "object",
       "properties": {
         "@odata.context": {
           "type": "string"
