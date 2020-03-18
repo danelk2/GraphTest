@@ -1,0 +1,52 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Microsoft",
+    "description": "API for graph.microsoft.com",
+    "version": "1.0.0"
+  },
+  "host": "graph.microsoft.com",
+  "schemes": [
+    "https"
+  ],
+  "consumes": [ "application/json" ],
+  "produces": [ "application/json" ],
+  "paths": {
+    "/v1.0/me": {
+      "get": {
+        "tags": [ "Users" ],
+        "description": "Me",
+        "operationId": "me",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "User": {
+      "type": "object",
+      "properties": {
+        "@odata.id": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "displayName": {
+          "type": "string"
+        },
+        "userPrincipalName": {
+          "type": "string"
+        }
+      },
+      "description": "Model for User"
+    }
+  }
+}
