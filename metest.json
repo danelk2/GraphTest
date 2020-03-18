@@ -1,0 +1,114 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Microsoft Graph Mail Folders",
+    "description": "API for graph.microsoft.com",
+    "version": "0.0.0"
+  },
+  "host": "graph.microsoft.com",
+  "basePath": "/v1.0",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/me": {
+      "get": {
+        "tags": [
+          "Me"
+        ],
+        "summary": "Get user info",
+        "description": "Get",
+        "operationId": "get",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/User"
+            },
+            "examples": {
+              "application/json": {
+                "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#users/$entity",
+                "businessPhones": [],
+                "displayName": "Danel Bernau",
+                "givenName": "Danel",
+                "jobTitle": null,
+                "mail": "danel@secureflow.co.uk",
+                "mobilePhone": null,
+                "officeLocation": null,
+                "preferredLanguage": null,
+                "surname": "Bernau",
+                "userPrincipalName": "Danel@secureflow.co.uk",
+                "id": "fcb41fa4-cb4b-419c-8ff6-cacf7bc6e4d1"
+              }
+            }
+          }
+        }
+      }
+    },
+  "definitions": {
+    "User": {
+      "description": "Model for User",
+      "required": [
+        "businessPhones"
+      ],
+      "properties": {
+        "businessPhones": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "x-example": "[]"
+        },
+        "displayName": {
+          "type": "string",
+          "x-example": "Danel Bernau"
+        },
+        "givenName": {
+          "type": "string",
+          "x-example": "Danel"
+        },
+        "id": {
+          "type": "string",
+          "x-example": "fcb41fa4-cb4b-419c-8ff6-cacf7bc6e4d1"
+        },
+        "jobTitle": {
+          "type": "string",
+          "x-example": ""
+        },
+        "mail": {
+          "type": "string",
+          "x-example": "danel@secureflow.co.uk"
+        },
+        "mobilePhone": {
+          "type": "string",
+          "x-example": ""
+        },
+        "officeLocation": {
+          "type": "string",
+          "x-example": ""
+        },
+        "preferredLanguage": {
+          "type": "string",
+          "x-example": ""
+        },
+        "surname": {
+          "type": "string",
+          "x-example": "Bernau"
+        },
+        "userPrincipalName": {
+          "type": "string",
+          "x-example": "Danel@secureflow.co.uk"
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Me",
+      "description": "Operations about Me"
+    }
+  ]
+}
