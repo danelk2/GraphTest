@@ -27,27 +27,12 @@
             "description": "OK",
             "schema": {
               "$ref": "#/definitions/User"
-            },
-            "examples": {
-              "application/json": {
-                "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#users/$entity",
-                "businessPhones": [],
-                "displayName": "Danel Bernau",
-                "givenName": "Danel",
-                "jobTitle": null,
-                "mail": "danel@secureflow.co.uk",
-                "mobilePhone": null,
-                "officeLocation": null,
-                "preferredLanguage": null,
-                "surname": "Bernau",
-                "userPrincipalName": "Danel@secureflow.co.uk",
-                "id": "fcb41fa4-cb4b-419c-8ff6-cacf7bc6e4d1"
-              }
             }
           }
         }
       }
-    },
+    }
+  },
   "definitions": {
     "User": {
       "description": "Model for User",
@@ -59,48 +44,37 @@
           "type": "array",
           "items": {
             "type": "string"
-          },
-          "x-example": "[]"
+          }
         },
         "displayName": {
-          "type": "string",
-          "x-example": "Danel Bernau"
+          "type": "string"
         },
         "givenName": {
-          "type": "string",
-          "x-example": "Danel"
+          "type": "string"
         },
         "id": {
-          "type": "string",
-          "x-example": "fcb41fa4-cb4b-419c-8ff6-cacf7bc6e4d1"
+          "type": "string"
         },
         "jobTitle": {
-          "type": "string",
-          "x-example": ""
+          "type": "string"
         },
         "mail": {
-          "type": "string",
-          "x-example": "danel@secureflow.co.uk"
+          "type": "string"
         },
         "mobilePhone": {
-          "type": "string",
-          "x-example": ""
+          "type": "string"
         },
         "officeLocation": {
-          "type": "string",
-          "x-example": ""
+          "type": "string"
         },
         "preferredLanguage": {
-          "type": "string",
-          "x-example": ""
+          "type": "string"
         },
         "surname": {
-          "type": "string",
-          "x-example": "Bernau"
+          "type": "string"
         },
         "userPrincipalName": {
-          "type": "string",
-          "x-example": "Danel@secureflow.co.uk"
+          "type": "string"
         }
       }
     }
