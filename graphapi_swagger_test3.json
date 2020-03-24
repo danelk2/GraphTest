@@ -1,0 +1,420 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Microsoft Graph Api",
+    "description": "API for graph.microsoft.com",
+    "version": "1.0"
+  },
+  "host": "graph.microsoft.com",
+  "basePath": "/v1.0",
+  "schemes": [ "https" ],
+  "paths": {
+    "/users/{upn}/mailFolders": {
+      "get": {
+        "tags": [ "Folders" ],
+        "description": "Get folder ID",
+        "operationId": "GetFolderId",
+        "produces": [ "application/json" ],
+        "parameters": [
+          {
+            "name": "upn",
+            "in": "path",
+            "description": "Upn",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "description": "Filter",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/GetFolderIdResponse"
+            }
+          }
+        }
+      }
+    },
+    "/users/{upn}/mailFolders/{folderId}/messages": {
+      "get": {
+        "tags": [ "Messages" ],
+        "description": "Get mail messages",
+        "operationId": "GetMailMessages",
+        "produces": [ "application/json" ],
+        "parameters": [
+          {
+            "name": "upn",
+            "in": "path",
+            "description": "Upn",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "folderId",
+            "in": "path",
+            "description": "Folder ID",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "description": "Filter",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "top",
+            "in": "query",
+            "description": "Top",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/GetMailMessagesResponse"
+            }
+          }
+        }
+      }
+    },
+    "/users/{upn}/messages/{messageId}/move": {
+      "post": {
+        "tags": [ "Messages" ],
+        "description": "Move message",
+        "operationId": "MoveMessage",
+        "consumes": [ "application/json" ],
+        "produces": [ "application/json" ],
+        "parameters": [
+          {
+            "name": "upn",
+            "in": "path",
+            "description": "Upn",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "messageId",
+            "in": "path",
+            "description": "Message ID",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "DestinationFolder",
+            "in": "body",
+            "description": "Destination folder",
+            "required": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/DestinationFolder"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/MoveMessageResponse"
+            }
+          }
+        }
+      }
+    },
+    "/users/{upn}/messages/{messageId}/attachments": {
+      "get": {
+        "tags": [ "Attachments" ],
+        "description": "Get mail attachments",
+        "operationId": "GetMailAttachments",
+        "produces": [ "application/json" ],
+        "parameters": [
+          {
+            "name": "upn",
+            "in": "path",
+            "description": "Upn",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "messageId",
+            "in": "path",
+            "description": "Message ID",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/GetMailAttachmentsResponse"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "DestinationFolder": {
+      "description": "Model for DestinationFolder",
+      "properties": {
+        "destinationId": {
+          "type": "string"
+        }
+      }
+    },
+    "MoveMessageResponse": {
+      "description": "Model for MoveMessageResponse",
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      }
+    },
+    "Flag": {
+      "description": "Model for Flag",
+      "required": [
+        "flagStatus"
+      ],
+      "properties": {
+        "flagStatus": {
+          "type": "string"
+        }
+      }
+    },
+    "ToRecipients": {
+      "description": "Model for ToRecipients",
+      "required": [
+        "emailAddress"
+      ],
+      "properties": {
+        "emailAddress": {
+          "$ref": "#/definitions/EmailAddress"
+        }
+      }
+    },
+    "From": {
+      "description": "Model for From",
+      "required": [
+        "emailAddress"
+      ],
+      "properties": {
+        "emailAddress": {
+          "$ref": "#/definitions/EmailAddress"
+        }
+      }
+    },
+    "EmailAddress": {
+      "description": "Model for EmailAddress",
+      "required": [
+        "address"
+      ],
+      "properties": {
+        "address": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "Sender": {
+      "description": "Model for Sender",
+      "required": [
+        "emailAddress"
+      ],
+      "properties": {
+        "emailAddress": {
+          "$ref": "#/definitions/EmailAddress"
+        }
+      }
+    },
+    "Body": {
+      "description": "Model for Body",
+      "required": [
+        "content"
+      ],
+      "properties": {
+        "content": {
+          "type": "string"
+        },
+        "contentType": {
+          "type": "string"
+        }
+      }
+    },
+    "GetMailMessagesResponse": {
+      "description": "Model for GetMailMessagesResponse",
+      "required": [
+        "value"
+      ],
+      "properties": {
+        "value": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/MailMessage"
+          }
+        }
+      }
+    },
+    "GetFolderIdResponse": {
+      "description": "Model for GetFolderIdResponse",
+      "required": [
+        "value"
+      ],
+      "properties": {
+        "value": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/MailFolder"
+          }
+        }
+      }
+    },
+    "MailFolder": {
+      "description": "Model for MailFolder",
+      "properties": {
+        "childFolderCount": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "displayName": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "parentFolderId": {
+          "type": "string"
+        },
+        "totalItemCount": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "unreadItemCount": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "MailMessage": {
+      "description": "Model for MailMessage",
+      "properties": {
+        "body": {
+          "$ref": "#/definitions/Body"
+        },
+        "bodyPreview": {
+          "type": "string"
+        },
+        "createdDateTime": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "from": {
+          "$ref": "#/definitions/From"
+        },
+        "hasAttachments": {
+          "type": "boolean"
+        },
+        "id": {
+          "type": "string"
+        },
+        "importance": {
+          "type": "string"
+        },
+        "isDraft": {
+          "type": "boolean"
+        },
+        "isRead": {
+          "type": "boolean"
+        },
+        "lastModifiedDateTime": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "receivedDateTime": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "sender": {
+          "$ref": "#/definitions/Sender"
+        },
+        "sentDateTime": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "subject": {
+          "type": "string"
+        },
+        "toRecipients": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ToRecipients"
+          }
+        }
+      }
+    },
+    "Attachments": {
+      "description": "Model for Attachments",
+      "required": [
+        "contentBytes"
+      ],
+      "properties": {
+        "contentBytes": {
+          "type": "string"
+        },
+        "contentId": {
+          "type": "string"
+        },
+        "contentLocation": {
+          "type": "string"
+        },
+        "contentType": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "isInline": {
+          "type": "boolean"
+        },
+        "lastModifiedDateTime": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "name": {
+          "type": "string"
+        },
+        "size": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "GetMailAttachmentsResponse": {
+      "description": "Model for GetMailAttachmentsResponse",
+      "required": [
+        "value"
+      ],
+      "properties": {
+        "value": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Attachments"
+          }
+        }
+      }
+    }
+  }
+}
